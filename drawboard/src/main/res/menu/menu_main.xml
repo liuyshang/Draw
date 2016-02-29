@@ -1,0 +1,48 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+    <item android:title="@string/color">
+
+        <menu>
+
+            <group android:checkableBehavior="single">
+
+                <item android:id="@+id/red" android:title="@string/color_red"/>
+                <item android:id="@+id/orange" android:title="@string/color_orange"/>
+                <item android:id="@+id/yellow" android:title="@string/color_yellow"/>
+                <item android:id="@+id/green" android:title="@string/color_green"/>
+                <item android:id="@+id/blue" android:title="@string/color_blue"/>
+                <item android:id="@+id/indigo" android:title="@string/color_indigo"/>
+                <item android:id="@+id/purple" android:title="@string/color_purple"/>
+
+            </group>
+
+        </menu>
+
+    </item>
+
+    <item android:title="@string/width">
+
+        <menu>
+
+            <group android:checkableBehavior="single">
+
+                <item android:id="@+id/width_6" android:title="6px"/>
+                <item android:id="@+id/width_8" android:title="8px"/>
+                <item android:id="@+id/width_10" android:title="10px"/>
+                <item android:id="@+id/width_12" android:title="12px"/>
+                <item android:id="@+id/width_14" android:title="14px"/>
+
+            </group>
+
+        </menu>
+
+    </item>
+
+
+    <item android:id="@+id/clear" android:title="@string/clear"/>
+
+    <item android:id="@+id/save" android:title="@string/save"/>
+
+</menu>

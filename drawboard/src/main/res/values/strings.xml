@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Draw</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="color">画笔颜色</string>
+    <string name="width">画笔宽度</string>
+    <string name="clear">清空画布</string>
+    <string name="save">保存图像</string>
+    <string name="color_red">红色</string>
+    <string name="color_orange">橙色</string>
+    <string name="color_yellow">黄色</string>
+    <string name="color_green">绿色</string>
+    <string name="color_blue">蓝色</string>
+    <string name="color_indigo">靛色</string>
+    <string name="color_purple">紫色</string>
+
+</resources>
