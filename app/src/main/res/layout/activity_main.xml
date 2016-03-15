@@ -1,11 +1,47 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:padding="30dp"
+    android:orientation="vertical">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-</RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/bt_bezier"
+                style="@style/ButtonMain"
+                android:text="贝塞尔曲线" />
+
+            <!--<Button-->
+                <!--android:id="@+id/bt_mobile_attribution"-->
+                <!--style="@style/ButtonMain"-->
+                <!--android:text="手机号归属地查询" />-->
+
+            <!--<Button-->
+                <!--android:id="@+id/bt_id_card"-->
+                <!--style="@style/ButtonMain"-->
+                <!--android:text="身份证查询" />-->
+
+            <!--<Button-->
+                <!--android:id="@+id/bt_ip_address"-->
+                <!--style="@style/ButtonMain"-->
+                <!--android:text="ip地址查询" />-->
+
+            <!--<Button-->
+                <!--android:id="@+id/bt_air_quality"-->
+                <!--style="@style/ButtonMain"-->
+                <!--android:text="空气质量指数" />-->
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

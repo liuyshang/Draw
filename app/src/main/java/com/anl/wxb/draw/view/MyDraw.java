@@ -1,4 +1,4 @@
-package com.anl.wxb.draw;
+package com.anl.wxb.draw.view;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -9,6 +9,8 @@ import android.graphics.Paint;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
+
+import com.anl.wxb.draw.R;
 
 /**
  * Created by admin on 2015/8/17.

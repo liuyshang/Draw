@@ -1,4 +1,4 @@
-package com.anl.wxb.draw;
+package com.anl.wxb.draw.util;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -13,5 +13,5 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)//表示用在字段上
 @Retention(RetentionPolicy.RUNTIME)//表示在生命周期运行时
 public @interface ViewInject {
-    int value() default 0;
+    public int value();
 }
