@@ -20,10 +20,10 @@
                 style="@style/ButtonMain"
                 android:text="贝塞尔曲线" />
 
-            <!--<Button-->
-                <!--android:id="@+id/bt_mobile_attribution"-->
-                <!--style="@style/ButtonMain"-->
-                <!--android:text="手机号归属地查询" />-->
+            <Button
+                android:id="@+id/bt_cos"
+                style="@style/ButtonMain"
+                android:text="COS曲线" />
 
             <!--<Button-->
                 <!--android:id="@+id/bt_id_card"-->

@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @ViewInject(R.id.bt_bezier)
     private Button btBezier;
+    @ViewInject(R.id.bt_cos)
+    private Button btCos;
 
     private Context mContext;
 
@@ -35,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void setListener() {
         btBezier.setOnClickListener(this);
+        btCos.setOnClickListener(this);
     }
 
     @Override
@@ -42,6 +45,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()){
             case R.id.bt_bezier:
                 startActivity(new Intent(mContext,GraphActivity.class).putExtra("type","bezier"));
+                break;
+            case R.id.bt_cos:
+                startActivity(new Intent(mContext,GraphActivity.class).putExtra("type","cos"));
                 break;
             default:
                 break;

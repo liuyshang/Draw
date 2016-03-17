@@ -12,6 +12,7 @@ import com.anl.wxb.draw.Interface.OnClickBackListener;
 import com.anl.wxb.draw.R;
 import com.anl.wxb.draw.adapter.GraphAdapter;
 import com.anl.wxb.draw.fragment.BezierFragment;
+import com.anl.wxb.draw.fragment.CosFragment;
 import com.anl.wxb.draw.util.Injector;
 import com.anl.wxb.draw.util.ViewInject;
 import com.anl.wxb.draw.view.ActionbarView;
@@ -58,13 +59,18 @@ public class GraphActivity extends AppCompatActivity implements OnClickBackListe
 
     private void initViewPager() {
         mList.add(new BezierFragment());
+        mList.add(new CosFragment());
         mAdapter = new GraphAdapter(getSupportFragmentManager(), mList);
         viewPager.setAdapter(mAdapter);
 
         switch (type) {
             case "bezier":
-                viewPager.setCurrentItem(0);
+                viewPager.setCurrentItem(0,false);
                 actionbar.setTvTitle("贝塞尔曲线");
+                break;
+            case "cos":
+                viewPager.setCurrentItem(1,false);
+                actionbar.setTvTitle("COS曲线");
                 break;
             default:
                 break;
