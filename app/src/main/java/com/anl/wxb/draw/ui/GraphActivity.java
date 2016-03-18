@@ -1,36 +1,38 @@
 package com.anl.wxb.draw.ui;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.anl.wxb.draw.Interface.OnClickBackListener;
 import com.anl.wxb.draw.R;
-import com.anl.wxb.draw.adapter.GraphAdapter;
 import com.anl.wxb.draw.fragment.BezierFragment;
+import com.anl.wxb.draw.fragment.CircleFragment;
 import com.anl.wxb.draw.fragment.CosFragment;
+import com.anl.wxb.draw.fragment.PowerFragment;
+import com.anl.wxb.draw.fragment.RippleFragment;
 import com.anl.wxb.draw.util.Injector;
 import com.anl.wxb.draw.util.ViewInject;
 import com.anl.wxb.draw.view.ActionbarView;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class GraphActivity extends AppCompatActivity implements OnClickBackListener {
 
     @ViewInject(R.id.actionbar_view)
     private ActionbarView actionbar;
-    @ViewInject(R.id.view_pager)
-    private ViewPager viewPager;
 
     private Context mContext;
-    private List<Fragment> mList = new ArrayList<>();
-    private GraphAdapter mAdapter;
     private String type;
+    private FragmentManager manager;
+    private FragmentTransaction transaction;
+    private BezierFragment bezierFragment;
+    private CosFragment cosFragment;
+    private PowerFragment powerFragment;
+    private CircleFragment circleFragment;
+    private RippleFragment rippleFragment;
 
     @Override
     public void onClickBack() {
@@ -40,12 +42,17 @@ public class GraphActivity extends AppCompatActivity implements OnClickBackListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.i(">>>","onCreate");
+        Log.i(">>>", "onCreate");
         setContentView(R.layout.activity_graph);
         mContext = GraphActivity.this;
         Injector.initInjectedView(this);
         getIntentData();
-        initViewPager();
+        init();
+        setListener();
+    }
+
+    private void setListener() {
+        actionbar.setOnClickBackListener(this);
     }
 
     private void getIntentData() {
@@ -57,24 +64,49 @@ public class GraphActivity extends AppCompatActivity implements OnClickBackListe
         }
     }
 
-    private void initViewPager() {
-        mList.add(new BezierFragment());
-        mList.add(new CosFragment());
-        mAdapter = new GraphAdapter(getSupportFragmentManager(), mList);
-        viewPager.setAdapter(mAdapter);
-
+    private void init() {
+        manager = getFragmentManager();
+        transaction = manager.beginTransaction();
         switch (type) {
             case "bezier":
-                viewPager.setCurrentItem(0,false);
+                if (bezierFragment == null){
+                    bezierFragment = new BezierFragment();
+                }
+                transaction.add(R.id.fragment, bezierFragment, "bezier");
                 actionbar.setTvTitle("贝塞尔曲线");
                 break;
             case "cos":
-                viewPager.setCurrentItem(1,false);
+                if (cosFragment == null){
+                    cosFragment = new CosFragment();
+                }
+                transaction.add(R.id.fragment, cosFragment, "cos");
                 actionbar.setTvTitle("COS曲线");
+                break;
+            case "square":
+                if (powerFragment == null){
+                    powerFragment = new PowerFragment();
+                }
+                transaction.add(R.id.fragment, powerFragment, "square");
+                actionbar.setTvTitle("N次幂曲线");
+                break;
+            case "circle":
+                if (circleFragment == null){
+                    circleFragment = new CircleFragment();
+                }
+                transaction.add(R.id.fragment, circleFragment, "square");
+                actionbar.setTvTitle("圆形");
+                break;
+            case "ripple":
+                if (rippleFragment == null){
+                    rippleFragment = new RippleFragment();
+                }
+                transaction.add(R.id.fragment, rippleFragment, "ripple");
+                actionbar.setTvTitle("波纹");
                 break;
             default:
                 break;
         }
+        transaction.commitAllowingStateLoss();
     }
 
     @Override

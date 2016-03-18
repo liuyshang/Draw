@@ -25,20 +25,20 @@
                 style="@style/ButtonMain"
                 android:text="COS曲线" />
 
-            <!--<Button-->
-                <!--android:id="@+id/bt_id_card"-->
-                <!--style="@style/ButtonMain"-->
-                <!--android:text="身份证查询" />-->
+            <Button
+                android:id="@+id/bt_square"
+                style="@style/ButtonMain"
+                android:text="N次幂曲线" />
 
-            <!--<Button-->
-                <!--android:id="@+id/bt_ip_address"-->
-                <!--style="@style/ButtonMain"-->
-                <!--android:text="ip地址查询" />-->
+            <Button
+                android:id="@+id/bt_circle"
+                style="@style/ButtonMain"
+                android:text="圆形" />
 
-            <!--<Button-->
-                <!--android:id="@+id/bt_air_quality"-->
-                <!--style="@style/ButtonMain"-->
-                <!--android:text="空气质量指数" />-->
+            <Button
+                android:id="@+id/bt_ripple"
+                style="@style/ButtonMain"
+                android:text="波纹" />
 
         </LinearLayout>
 

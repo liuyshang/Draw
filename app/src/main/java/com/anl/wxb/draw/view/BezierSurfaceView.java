@@ -9,6 +9,7 @@ import android.graphics.Path;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -107,10 +108,18 @@ public class BezierSurfaceView extends SurfaceView implements Runnable, SurfaceH
      * 调用自定义绘图方法
      */
     private void mDraw() {
-        mCanvas = mHolder.lockCanvas();           //获得画布对象，开始对画布画画
-        mCanvas.drawColor(Color.BLACK);             //设置画布颜色为黑色
-        canvasMethod(mCanvas);                  //调用自定义的方法，主要是在传进去的画布对象上画画
-        mHolder.unlockCanvasAndPost(mCanvas);     //把画布显示在屏幕上
+        //返回报错处理
+        try {
+            mCanvas = mHolder.lockCanvas();           //获得画布对象，开始对画布画画
+            mCanvas.drawColor(Color.BLACK);             //设置画布颜色为黑色
+            canvasMethod(mCanvas);                  //调用自定义的方法，主要是在传进去的画布对象上画画
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (mCanvas != null) {
+                mHolder.unlockCanvasAndPost(mCanvas);     //把画布显示在屏幕上
+            }
+        }
     }
 
     /**
@@ -160,6 +169,14 @@ public class BezierSurfaceView extends SurfaceView implements Runnable, SurfaceH
             new Thread(this).start();
         }
         return super.onTouchEvent(event);
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK){
+            flag = false;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
     public void setFlag(boolean flag) {

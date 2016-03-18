@@ -7,6 +7,7 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -17,7 +18,7 @@ import android.view.SurfaceView;
  * e-mail: lance.cao@anarry.com
  * 画 y = Cosx 函数
  */
-public class CosView extends SurfaceView implements SurfaceHolder.Callback, Runnable {
+public class CosSurfaceView extends SurfaceView implements SurfaceHolder.Callback, Runnable {
 
     /**
      * X每次增加的数值
@@ -74,15 +75,15 @@ public class CosView extends SurfaceView implements SurfaceHolder.Callback, Runn
      */
     private boolean falg = false;
 
-    public CosView(Context context) {
+    public CosSurfaceView(Context context) {
         this(context, null);
     }
 
-    public CosView(Context context, AttributeSet attrs) {
+    public CosSurfaceView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public CosView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public CosSurfaceView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }
@@ -129,10 +130,19 @@ public class CosView extends SurfaceView implements SurfaceHolder.Callback, Runn
     @Override
     public void run() {
         while (falg) {
-            mCanvas = mHolder.lockCanvas();
-            mCanvas.drawColor(Color.GRAY);
-            canvasPath(mCanvas);
-            mHolder.unlockCanvasAndPost(mCanvas);
+            //返回键报错处理
+            if (mHolder != null)
+                try {
+                    mCanvas = mHolder.lockCanvas();
+                    mCanvas.drawColor(Color.GRAY);
+                    canvasPath(mCanvas);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                } finally {
+                    if (mCanvas != null) {
+                        mHolder.unlockCanvasAndPost(mCanvas);
+                    }
+                }
         }
     }
 
@@ -162,7 +172,7 @@ public class CosView extends SurfaceView implements SurfaceHolder.Callback, Runn
             originX -= startX * MULTIPLEX;
             time = 0;
         }
-        if (startX == TWO_PI){
+        if (startX == 3 * ADD_ANGLE) {
             startX = 0;
             originX = 0;
         }
@@ -181,5 +191,13 @@ public class CosView extends SurfaceView implements SurfaceHolder.Callback, Runn
 
     public void setFalg(boolean falg) {
         this.falg = falg;
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            falg = false;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

@@ -23,6 +23,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btBezier;
     @ViewInject(R.id.bt_cos)
     private Button btCos;
+    @ViewInject(R.id.bt_square)
+    private Button btSquare;
+    @ViewInject(R.id.bt_circle)
+    private Button btCircle;
+    @ViewInject(R.id.bt_ripple)
+    private Button btRipple;
 
     private Context mContext;
 
@@ -38,6 +44,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void setListener() {
         btBezier.setOnClickListener(this);
         btCos.setOnClickListener(this);
+        btSquare.setOnClickListener(this);
+        btCircle.setOnClickListener(this);
+        btRipple.setOnClickListener(this);
     }
 
     @Override
@@ -48,6 +57,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.bt_cos:
                 startActivity(new Intent(mContext,GraphActivity.class).putExtra("type","cos"));
+                break;
+            case R.id.bt_square:
+                startActivity(new Intent(mContext,GraphActivity.class).putExtra("type","square"));
+                break;
+            case R.id.bt_circle:
+                startActivity(new Intent(mContext,GraphActivity.class).putExtra("type","circle"));
+                break;
+            case R.id.bt_ripple:
+                startActivity(new Intent(mContext,GraphActivity.class).putExtra("type","ripple"));
                 break;
             default:
                 break;

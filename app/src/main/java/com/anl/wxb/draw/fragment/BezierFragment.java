@@ -1,8 +1,8 @@
 package com.anl.wxb.draw.fragment;
 
+import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -40,7 +40,7 @@ public class BezierFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        Log.i(">>>", "onCreateView");
+        Log.i(">>>", "BezierFragment onCreateView");
         if (view == null) {
             view = inflater.inflate(R.layout.fragment_bezier, null);
         }
@@ -55,13 +55,13 @@ public class BezierFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onResume() {
-        Log.i(">>>", "onResume");
+        Log.i(">>>", "BezierFragment onResume");
         super.onResume();
     }
 
     @Override
     public void onPause() {
-        Log.i(">>>", "onPause");
+        Log.i(">>>", "BezierFragment onPause");
         super.onPause();
     }
 
@@ -113,8 +113,6 @@ public class BezierFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        if (view != null) {
-            ((ViewGroup) view.getParent()).removeView(view);
-        }
+        Log.i(">>>","BezierFragment onDestroyView");
     }
 }
