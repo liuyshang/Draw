@@ -95,8 +95,8 @@ public class CircleDrawView extends View {
     private void init(Context context, AttributeSet attrs) {
         TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.circle);
         radius = array.getFloat(R.styleable.circle_radius, 3);
-        paintColor = array.getInt(R.styleable.circle_paintcolor, Color.GREEN);
-        paintWidth = array.getInt(R.styleable.circle_paintwidth, 5);
+        paintColor = array.getInt(R.styleable.circle_ptcolor, Color.GREEN);
+        paintWidth = array.getInt(R.styleable.circle_ptwidth, 5);
         array.recycle();
 
         mPaint = new Paint();

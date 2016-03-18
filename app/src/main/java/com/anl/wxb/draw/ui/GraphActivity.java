@@ -12,6 +12,7 @@ import com.anl.wxb.draw.Interface.OnClickBackListener;
 import com.anl.wxb.draw.R;
 import com.anl.wxb.draw.fragment.BezierFragment;
 import com.anl.wxb.draw.fragment.CircleFragment;
+import com.anl.wxb.draw.fragment.CircleProgressBarFragment;
 import com.anl.wxb.draw.fragment.CosFragment;
 import com.anl.wxb.draw.fragment.PowerFragment;
 import com.anl.wxb.draw.fragment.RippleFragment;
@@ -33,6 +34,7 @@ public class GraphActivity extends AppCompatActivity implements OnClickBackListe
     private PowerFragment powerFragment;
     private CircleFragment circleFragment;
     private RippleFragment rippleFragment;
+    private CircleProgressBarFragment progressBarFragment;
 
     @Override
     public void onClickBack() {
@@ -102,6 +104,13 @@ public class GraphActivity extends AppCompatActivity implements OnClickBackListe
                 }
                 transaction.add(R.id.fragment, rippleFragment, "ripple");
                 actionbar.setTvTitle("波纹");
+                break;
+            case "progress":
+                if (progressBarFragment == null){
+                    progressBarFragment = new CircleProgressBarFragment();
+                }
+                transaction.add(R.id.fragment, progressBarFragment, "progress");
+                actionbar.setTvTitle("进度条");
                 break;
             default:
                 break;

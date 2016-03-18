@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btCircle;
     @ViewInject(R.id.bt_ripple)
     private Button btRipple;
+    @ViewInject(R.id.bt_progress)
+    private Button btProgress;
 
     private Context mContext;
 
@@ -47,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btSquare.setOnClickListener(this);
         btCircle.setOnClickListener(this);
         btRipple.setOnClickListener(this);
+        btProgress.setOnClickListener(this);
     }
 
     @Override
@@ -66,6 +69,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.bt_ripple:
                 startActivity(new Intent(mContext,GraphActivity.class).putExtra("type","ripple"));
+                break;
+            case R.id.bt_progress:
+                startActivity(new Intent(mContext,GraphActivity.class).putExtra("type","progress"));
                 break;
             default:
                 break;

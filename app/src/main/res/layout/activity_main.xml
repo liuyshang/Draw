@@ -40,6 +40,11 @@
                 style="@style/ButtonMain"
                 android:text="波纹" />
 
+            <Button
+                android:id="@+id/bt_progress"
+                style="@style/ButtonMain"
+                android:text="进度条" />
+
         </LinearLayout>
 
     </ScrollView>

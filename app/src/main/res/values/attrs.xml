@@ -3,8 +3,9 @@
 
     <declare-styleable name="circle">
         <attr name="radius" format="float"/>
-        <attr name="paintcolor" format="integer"/>
-        <attr name="paintwidth" format="integer"/>
+        <attr name="ptcolor" format="integer"/>
+        <attr name="ptwidth" format="integer"/>
+        <attr name="txcolor" format="integer"/>
     </declare-styleable>
 
 </resources>
