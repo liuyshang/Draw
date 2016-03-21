@@ -19,18 +19,41 @@ import com.anl.wxb.draw.util.ViewInject;
  */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
+    /**
+     * 贝塞尔曲线
+     * */
     @ViewInject(R.id.bt_bezier)
     private Button btBezier;
+    /**
+     * COS曲线
+     * */
     @ViewInject(R.id.bt_cos)
     private Button btCos;
+    /**
+     * 幂次函数曲线
+     * */
     @ViewInject(R.id.bt_square)
     private Button btSquare;
+    /**
+     * 圆
+     * */
     @ViewInject(R.id.bt_circle)
     private Button btCircle;
+    /**
+     * 波纹
+     * */
     @ViewInject(R.id.bt_ripple)
     private Button btRipple;
+    /**
+     * 进度条
+     * */
     @ViewInject(R.id.bt_progress)
     private Button btProgress;
+    /**
+     * 加载效果图
+     * */
+    @ViewInject(R.id.bt_loading)
+    private Button btLoading;
 
     private Context mContext;
 
@@ -50,6 +73,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btCircle.setOnClickListener(this);
         btRipple.setOnClickListener(this);
         btProgress.setOnClickListener(this);
+        btLoading.setOnClickListener(this);
     }
 
     @Override
@@ -72,6 +96,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.bt_progress:
                 startActivity(new Intent(mContext,GraphActivity.class).putExtra("type","progress"));
+                break;
+            case R.id.bt_loading:
+                startActivity(new Intent(mContext,GraphActivity.class).putExtra("type","loading"));
                 break;
             default:
                 break;

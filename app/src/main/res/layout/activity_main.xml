@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
-    android:padding="30dp"
+    android:padding="20dp"
     android:orientation="vertical">
 
     <ScrollView
@@ -44,6 +44,11 @@
                 android:id="@+id/bt_progress"
                 style="@style/ButtonMain"
                 android:text="进度条" />
+
+            <Button
+                android:id="@+id/bt_loading"
+                style="@style/ButtonMain"
+                android:text="加载效果图" />
 
         </LinearLayout>
 

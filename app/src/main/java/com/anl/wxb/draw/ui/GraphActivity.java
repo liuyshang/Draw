@@ -12,7 +12,8 @@ import com.anl.wxb.draw.Interface.OnClickBackListener;
 import com.anl.wxb.draw.R;
 import com.anl.wxb.draw.fragment.BezierFragment;
 import com.anl.wxb.draw.fragment.CircleFragment;
-import com.anl.wxb.draw.fragment.CircleProgressBarFragment;
+import com.anl.wxb.draw.fragment.LoadingFragment;
+import com.anl.wxb.draw.fragment.ProgressBarFragment;
 import com.anl.wxb.draw.fragment.CosFragment;
 import com.anl.wxb.draw.fragment.PowerFragment;
 import com.anl.wxb.draw.fragment.RippleFragment;
@@ -34,7 +35,8 @@ public class GraphActivity extends AppCompatActivity implements OnClickBackListe
     private PowerFragment powerFragment;
     private CircleFragment circleFragment;
     private RippleFragment rippleFragment;
-    private CircleProgressBarFragment progressBarFragment;
+    private ProgressBarFragment progressBarFragment;
+    private LoadingFragment loadingFragment;
 
     @Override
     public void onClickBack() {
@@ -71,46 +73,53 @@ public class GraphActivity extends AppCompatActivity implements OnClickBackListe
         transaction = manager.beginTransaction();
         switch (type) {
             case "bezier":
-                if (bezierFragment == null){
+                if (bezierFragment == null) {
                     bezierFragment = new BezierFragment();
                 }
                 transaction.add(R.id.fragment, bezierFragment, "bezier");
                 actionbar.setTvTitle("贝塞尔曲线");
                 break;
             case "cos":
-                if (cosFragment == null){
+                if (cosFragment == null) {
                     cosFragment = new CosFragment();
                 }
                 transaction.add(R.id.fragment, cosFragment, "cos");
                 actionbar.setTvTitle("COS曲线");
                 break;
             case "square":
-                if (powerFragment == null){
+                if (powerFragment == null) {
                     powerFragment = new PowerFragment();
                 }
                 transaction.add(R.id.fragment, powerFragment, "square");
                 actionbar.setTvTitle("N次幂曲线");
                 break;
             case "circle":
-                if (circleFragment == null){
+                if (circleFragment == null) {
                     circleFragment = new CircleFragment();
                 }
                 transaction.add(R.id.fragment, circleFragment, "square");
                 actionbar.setTvTitle("圆形");
                 break;
             case "ripple":
-                if (rippleFragment == null){
+                if (rippleFragment == null) {
                     rippleFragment = new RippleFragment();
                 }
                 transaction.add(R.id.fragment, rippleFragment, "ripple");
                 actionbar.setTvTitle("波纹");
                 break;
             case "progress":
-                if (progressBarFragment == null){
-                    progressBarFragment = new CircleProgressBarFragment();
+                if (progressBarFragment == null) {
+                    progressBarFragment = new ProgressBarFragment();
                 }
                 transaction.add(R.id.fragment, progressBarFragment, "progress");
                 actionbar.setTvTitle("进度条");
+                break;
+            case "loading":
+                if (loadingFragment == null) {
+                    loadingFragment = new LoadingFragment();
+                }
+                transaction.add(R.id.fragment, loadingFragment, "loading");
+                actionbar.setTvTitle("加载效果图");
                 break;
             default:
                 break;

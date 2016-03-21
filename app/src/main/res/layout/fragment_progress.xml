@@ -11,7 +11,7 @@
         android:layout_alignParentBottom="true"
         android:text="模拟进度" />
 
-    <com.anl.wxb.draw.view.CircleProgressBarView
+    <com.anl.wxb.draw.view.ProgressBarDrawView
         android:id="@+id/progress_bar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

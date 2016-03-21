@@ -8,7 +8,7 @@
     <style name="ButtonMain">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">50dp</item>
-        <item name="android:layout_marginTop">15dp</item>
+        <item name="android:layout_marginTop">10dp</item>
         <item name="android:layout_marginBottom">15dp</item>
         <item name="android:background">@drawable/seletcor_bt_02</item>
         <item name="android:textSize">18sp</item>
